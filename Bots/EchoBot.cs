@@ -42,20 +42,25 @@ namespace Microsoft.BotBuilderSamples.Bots
 
 
 
-           /* HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Authorization", "bearer ");
 
-            var values = new Dictionary<string, string>
-            {
-               { "thing1", "hello" },
-               { "thing2", "world" }
-            };
+            /* HttpClient client = new HttpClient();
+             client.DefaultRequestHeaders.Add("Authorization", "bearer ");
 
-            var content = new FormUrlEncodedContent(values);
+             var values = new Dictionary<string, string>
+             {
+                { "thing1", "hello" },
+                { "thing2", "world" }
+             };
 
-            var response = await client.PostAsync("http://www.example.com/recepticle.aspx", content);
+             var content = new FormUrlEncodedContent(values);
 
-            var responseString = await response.Content.ReadAsStringAsync();*/
+             var response = await client.PostAsync("http://www.example.com/recepticle.aspx", content);
+
+             var responseString = await response.Content.ReadAsStringAsync();*/
+
+
+            var client = KustoClientFactory.CreateCslQueryProvider("https://aznw.kusto.windows.net/aznwmds;Fed=true");
+            var reader = client.ExecuteQuery("TunnelEventsTable | count");
 
 
         }
